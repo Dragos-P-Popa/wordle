@@ -1,6 +1,6 @@
 package comp1721.cwk1;
 
-import java.util.Locale;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -17,12 +17,9 @@ public class Guess {
 
   // TODO: Implement constructor with int and String parameters
   public Guess(int GuessNumber, String chosenWord){
-    /**
-    chosenWord = chosenWord.toUpperCase(Locale.ROOT);
-    if ((GuessNumber < 1 || GuessNumber > 6) || (!chosenWord.matches("[A-Z]+")) && chosenWord.length() == 5){
+    /**if ((GuessNumber < 1 || GuessNumber > 6) || (!chosenWord.toUpperCase().matches("[A-Z]")) || (chosenWord.length() != 5)) {
       throw new GameException("ERROR");
-    }
-    **/
+    }**/
   }
 
   // TODO: Implement getGuessNumber(), returning an int
@@ -44,8 +41,22 @@ public class Guess {
 
   // TODO: Implement compareWith(), giving it a String parameter and String return type
   public String compareWith(String s){
+    String[] guess = s.split("");
+    String[] word = getChosenWord().split("");
+    String output = "";
 
-  return "";
+    for (int i = 0; i < 5; i++) {
+      if(Arrays.asList(word).contains(guess[i]) && Arrays.asList(word).indexOf(guess[i]) == i){
+        output = output + "\033[30;102m "+ guess[i] +" \033[0m";
+      }
+      if(Arrays.asList(word).contains(guess[i]) && Arrays.asList(word).indexOf(guess[i]) != i){
+        output = output + "\033[30;103m "+ guess[i] +" \033[0m";
+      }
+      if(!Arrays.asList(word).contains(guess[i])){
+        output = output + "\033[30;107m "+ guess[i] +" \033[0m";
+      }
+    }
+  return output;
   }
 
   // TODO: Implement matches(), giving it a String parameter and boolean return type
