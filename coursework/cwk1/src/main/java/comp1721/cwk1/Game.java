@@ -16,9 +16,8 @@ public class Game {
   // TODO: Implement constructor with String parameter
   public Game(String location) throws IOException {
 
-    DateTimeFormatter df = DateTimeFormatter.ofPattern("dd MM yyyy");
-    initialDate = LocalDate.parse("19 06 2021", df);
-    currentDate = LocalDate.parse("10 02 2022", df);
+    initialDate = LocalDate.of(2021, 6, 19);
+    currentDate = LocalDate.now();
     long daysBetween = ChronoUnit.DAYS.between(initialDate, currentDate);
 
     list = new WordList(location);
