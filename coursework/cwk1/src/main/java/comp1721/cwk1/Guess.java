@@ -16,7 +16,7 @@ public class Guess {
     if (GuessNumber < 1 || GuessNumber > 6){
       throw new GameException("");
     }
-    guessNumber = guessNumber + 1;
+    guessNumber = GuessNumber;
   }
 
   // TODO: Implement constructor with int and String parameters
@@ -24,7 +24,7 @@ public class Guess {
     if ((GuessNumber < 1 || GuessNumber > 6) || (!Cword.matches("[a-zA-Z]+")) || (Cword.length() != 5)) {
       throw new GameException("");
     }
-    guessNumber = guessNumber + 1;
+    guessNumber = GuessNumber;
     chosenWord = Cword.toUpperCase();
   }
 

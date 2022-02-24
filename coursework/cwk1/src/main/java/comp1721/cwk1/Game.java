@@ -11,7 +11,6 @@ public class Game {
   public WordList list;
   public LocalDate initialDate;
   public LocalDate currentDate;
-  public DateFormatter df;
 
   // TODO: Implement constructor with String parameter
   public Game(String location) throws IOException {
