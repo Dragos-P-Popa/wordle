@@ -1,5 +1,7 @@
 package comp1721.cwk1;
 
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
@@ -8,7 +10,7 @@ import java.util.Scanner;
 public class Guess {
   // Use this to get player input in readFromPlayer()
   private static final Scanner INPUT = new Scanner(System.in);
-  public String chosenWord;
+  public String chosenWord, saveString;
   public int guessNumber = 0;
 
   // TODO: Implement constructor with int parameter
@@ -40,6 +42,11 @@ public class Guess {
   return chosenWord;
   }
 
+  public String getSaveString(){
+
+    return saveString;
+  }
+
   // TODO: Implement readFromPlayer()
   public void readFromPlayer(){
 
@@ -62,15 +69,12 @@ public class Guess {
         output = output + "\033[30;107m "+ word[i] +" \033[0m";
       }
     }
-  return output;
+    saveString = saveString + output + "\n";
+    return output;
   }
 
   // TODO: Implement matches(), giving it a String parameter and boolean return type
   public Boolean matches(String s){
-    if (Objects.equals(s, getChosenWord())){
-      return true;
-    }else{
-      return false;
-    }
+    return Objects.equals(s, getChosenWord());
   }
 }
