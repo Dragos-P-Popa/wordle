@@ -1,7 +1,5 @@
 package comp1721.cwk1;
 
-import java.io.File;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
@@ -42,11 +40,6 @@ public class Guess {
   return chosenWord;
   }
 
-  public String getSaveString(){
-
-    return saveString;
-  }
-
   // TODO: Implement readFromPlayer()
   public void readFromPlayer(){
 
@@ -69,7 +62,6 @@ public class Guess {
         output = output + "\033[30;107m "+ word[i] +" \033[0m";
       }
     }
-    saveString = saveString + output + "\n";
     return output;
   }
 
