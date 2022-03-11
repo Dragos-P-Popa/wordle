@@ -7,6 +7,6 @@ public class CircleDemo {
         System.out.println("Area    = " +circle.area());
 
         System.out.println(circle.toString());
-        System.out.println(circle.equals(0.00005, 0.00006));
+        System.out.println(circle.equals(1.0, 1.00003));
     }
 }
