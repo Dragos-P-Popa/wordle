@@ -16,18 +16,23 @@ public class Deck {
         return false;
     }
 
-    public boolean contains(String card){
+    public boolean contains(Card card){
 
         return false;
+    }
+
+    public void add(Card card){
+
     }
 
     public void discard(){
 
     }
 
-    public String deal(){
+    public Card deal(){
         //remove card from deck and return it
-        return "";
+        Card card = new Card("2S");
+        return card;
     }
 
     public void shuffle(){

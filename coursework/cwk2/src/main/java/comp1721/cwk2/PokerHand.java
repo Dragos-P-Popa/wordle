@@ -1,12 +1,17 @@
 package comp1721.cwk2;
 
 public class PokerHand {
+    public static int FULL_SIZE = 52;
 
     public PokerHand(){
 
     }
 
     public PokerHand(String hand){
+
+    }
+
+    public void add(Card card){
 
     }
 
