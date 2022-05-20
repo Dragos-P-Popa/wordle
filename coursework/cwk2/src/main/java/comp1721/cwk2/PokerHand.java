@@ -1,8 +1,6 @@
 package comp1721.cwk2;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 public class PokerHand {
@@ -19,6 +17,7 @@ public class PokerHand {
         if (splitHand.length > 5){
             throw new CardException("Too many cards.");
         }
+
         handString = new String[]{null, null, null, null, null};
         System.arraycopy(splitHand, 0, handString, 0, splitHand.length);
     }
@@ -28,7 +27,7 @@ public class PokerHand {
             throw new CardException("Hand is full");
         }
         for (int i = 0; i < 5; i++) {
-            if (handString[i] ==  "" + card.getRank() + card.getSuit()){
+            if (Objects.equals(handString[i], "" + card.getSuit() + card.getRank())){
                 throw new CardException("Duplicate card");
             }
         }
@@ -61,11 +60,24 @@ public class PokerHand {
     }
 
     public void discard(){
-        Arrays.fill(handString, null);
+        if ((int) Arrays.stream(handString).filter(Objects::nonNull).count() != 0){
+            Arrays.fill(handString, null);
+        } else {
+            throw new CardException("Hand is empty");
+        }
     }
 
     public void discardTo(Deck deck){
-
+        if ((int) Arrays.stream(handString).filter(Objects::nonNull).count() != 0){
+            for (int i = 0; i < 5; i++) {
+                if (handString[i] != null){
+                    deck.add(new Card(handString[i]));
+                }
+            }
+            Arrays.fill(handString, null);
+        } else {
+            throw new CardException("Hand is empty");
+        }
     }
 
     public boolean isPair(){

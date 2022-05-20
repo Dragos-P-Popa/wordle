@@ -42,7 +42,7 @@ public class Deck {
     }
 
     public boolean isEmpty(){
-        if (deckString.length > 0) {
+        if (this.size() > 0) {
             return false;
         } else {
             return true;
@@ -54,12 +54,10 @@ public class Deck {
     }
 
     public void add(Card card){
-        if (deckString.length < 52) {
-            for (int i = 0; i < 52; i++) {
-                if (deckString[i] == null){
-                    deckString[i] = "" + card.getRank() + card.getSuit();
-                    break;
-                }
+        for (int i = 0; i < 52; i++) {
+            if (deckString[i] == null){
+                deckString[i] = "" + card.getRank() + card.getSuit();
+                break;
             }
         }
     }
