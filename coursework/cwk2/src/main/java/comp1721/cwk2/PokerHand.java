@@ -1,7 +1,6 @@
 package comp1721.cwk2;
 
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
 
 public class PokerHand {
     public static int FULL_SIZE = 52;
@@ -27,8 +26,11 @@ public class PokerHand {
             throw new CardException("Hand is full");
         }
         for (int i = 0; i < 5; i++) {
-            if (Objects.equals(handString[i], "" + card.getSuit() + card.getRank())){
-                throw new CardException("Duplicate card");
+            if (handString[i] != null) {
+                Card tempLocal = new Card(handString[i]);
+                if (tempLocal.equals(card)) {
+                    throw new CardException("Duplicate card");
+                }
             }
         }
         for (int i = 0; i < 5; i++) {
@@ -81,6 +83,14 @@ public class PokerHand {
     }
 
     public boolean isPair(){
+        List handList = Arrays.asList(handString);
+        Set<String> handSet = new HashSet<String>(handList);
+
+        for(String s: handSet){
+            if (Collections.frequency(handSet,s) == 1){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -89,6 +99,14 @@ public class PokerHand {
     }
 
     public boolean isTwoPairs(){
+        List handList = Arrays.asList(handString);
+        Set<String> handSet = new HashSet<String>(handList);
+
+        for(String s: handSet){
+            if (Collections.frequency(handSet,s) == 2){
+                return true;
+            }
+        }
         return false;
     }
 
