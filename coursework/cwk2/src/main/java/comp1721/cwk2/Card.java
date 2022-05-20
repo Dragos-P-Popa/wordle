@@ -108,7 +108,7 @@ public class Card implements Comparable<Card> {
       suit = Suit.valueOf(parts[2].toUpperCase());
     }
     else {
-      throw new IllegalArgumentException("Invalid card name format");
+      throw new IllegalArgumentException("Invalid card name format" + name);
     }
   }
 

@@ -2,9 +2,11 @@ package comp1721.cwk2;
 
 public class PokerHand {
     public static int FULL_SIZE = 52;
+    public String[] handString;
+
 
     public PokerHand(){
-
+        handString = new String[5];
     }
 
     public PokerHand(String hand){
